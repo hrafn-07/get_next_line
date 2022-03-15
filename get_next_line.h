@@ -6,27 +6,26 @@
 /*   By: ktuncbil <ktuncbil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 11:12:32 by ktuncbil          #+#    #+#             */
-/*   Updated: 2022/03/07 17:56:40 by ktuncbil         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:18:38 by ktuncbil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE
-# define BUFFER_SIZE 42
 
-# define TRUE 1
-# define FALSE 0
-# define ERROR -1
-
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
 char	*get_next_line(int fd);
-int		is_newline(char *str);
-char	*reader(int fd, char *buff_str);
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_read_to_left_str(int fd, char *left_str);
+int		ft_strchr(char *s, int c);
+char	*ft_strjoin(char *left_str, char *buff);
+size_t	ft_strlen(char *s);
+char	*ft_get_line(char *left_str);
+char	*ft_new_left_str(char *left_str);
 
 #endif
